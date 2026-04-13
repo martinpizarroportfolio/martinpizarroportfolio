@@ -13,18 +13,21 @@ html { scroll-behavior: smooth; }
     src: url('PixeledEnglish.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: block;
 }
 @font-face {
     font-family: 'TerminalGrotesque';
     src: url('terminal-grotesque.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: block;
 }
 @font-face {
     font-family: 'MBASliceMono';
     src: url('MBASliceMono.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: block;
 }
 
 </style>
@@ -1739,7 +1742,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         }
     }
 
-    run();
+    document.fonts.ready.then(() => run());
 })();
 
 </script>
