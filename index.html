@@ -21,47 +21,12 @@ html { scroll-behavior: smooth; }
     font-style: normal;
 }
 @font-face {
-    font-family: 'Pilowlava';
-    src: url('Pilowlava.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
     font-family: 'MBASliceMono';
     src: url('MBASliceMono.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
-    font-family: 'ZISquare';
-    src: url('ZI_SQUARE.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Pavot';
-    src: url('Pavot-Bold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'MidgameStd';
-    src: url('MidgameStd.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'FurniturVF';
-    src: url('FurniturVF.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Vanosky';
-    src: url('Vanosky.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -378,6 +343,7 @@ nav       { animation: navDown .65s cubic-bezier(.23,1,.32,1) both; }
     .fan-card:nth-child(2) { width: 195px; height: 310px; }
 }
 @media (max-width: 640px) {
+    .hero-corners { display: none; }
     .fan-scene  { padding: 20px 0 40px; overflow: visible; }
     .fan-group  { transform: rotateX(6deg); }
     /* Shrink all cards uniformly — 4 cards fit in viewport */
