@@ -894,19 +894,21 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
 }
 
 /* ── TOOLS MARQUEE ── */
-.tools-marquee-section { overflow: hidden; }
+.tools-marquee-section { overflow: hidden; pointer-events: none; }
 .marquee-outer {
     overflow: hidden;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    pointer-events: none;
 }
 .marquee-track {
     display: flex;
     width: max-content;
     animation: marqueeScroll 40s linear infinite;
     gap: 0;
+    will-change: transform;
+    pointer-events: none;
 }
-.marquee-track:hover { animation-play-state: paused; }
 @keyframes marqueeScroll {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
@@ -918,10 +920,9 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
     gap: 8px;
     padding: 0 32px;
     opacity: 0.55;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    cursor: default;
+    pointer-events: none;
+    user-select: none;
 }
-.tool-item:hover { opacity: 1; transform: translateY(-4px); }
 .tool-item img.tool-img {
     width: 36px;
     height: 36px;
