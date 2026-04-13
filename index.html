@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Martín Pizarro | Diseñador Gráfico</title>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;900&family=Space+Grotesk:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet"/>
+<style>
+html { scroll-behavior: smooth; }
+
+@font-face {
+    font-family: 'PixeledEnglish';
+    src: url('PixeledEnglish.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TerminalGrotesque';
+    src: url('terminal-grotesque.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pilowlava';
+    src: url('Pilowlava.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MBASliceMono';
+    src: url('MBASliceMono.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ZISquare';
+    src: url('ZI_SQUARE.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pavot';
+    src: url('Pavot-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MidgameStd';
+    src: url('MidgameStd.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'FurniturVF';
+    src: url('FurniturVF.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Vanosky';
+    src: url('Vanosky.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+        darkMode:"class",
+        theme:{extend:{
+            colors:{
+                "primary":"#0c00df","on-primary":"#ffffff",
+                "secondary-container":"#c5f000","on-secondary-container":"#0e1400",
+                "secondary":"#c5f000","background":"#080808","on-background":"#f0f0f0",
+                "surface":"#080808","on-surface":"#f0f0f0","on-surface-variant":"#999999",
+                "surface-container":"#111111","surface-container-low":"#0d0d0d",
+                "surface-container-high":"#161616","surface-container-highest":"#1c1c1c",
+                "outline":"#444444","outline-variant":"#2a2a2a",
+            },
+            borderRadius:{"DEFAULT":"0rem","lg":"0rem","xl":"0rem","full":"9999px"},
+            fontFamily:{"headline":["Epilogue"],"body":["Space Grotesk"],"label":["Space Grotesk"]}
+        }}
+    }
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+body { font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
+
+/* ── Background blobs ── */
+body { background-color: #080808; }
+.blob-wrap {
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 0;
+    overflow: hidden;
+}
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: .07;
+    will-change: transform;
+}
+.blob-1 {
+    width: 500px; height: 500px;
+    background: #1a3fff;
+    top: -100px; left: -100px;
+    animation: blob1 28s ease-in-out infinite alternate;
+}
+.blob-2 {
+    width: 400px; height: 400px;
+    background: #0c00df;
+    bottom: 10%; right: -120px;
+    animation: blob2 36s ease-in-out infinite alternate;
+}
+@keyframes blob1 {
+    0%   { transform: translate(0,0); }
+    100% { transform: translate(180px,220px); }
+}
+@keyframes blob2 {
+    0%   { transform: translate(0,0); }
+    100% { transform: translate(-160px,-200px); }
+}
+html.light-mode .blob { opacity: .03; }
+
+/* ── Page entrance animations ── */
+@keyframes navDown  { from{transform:translateY(-100%);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes scaleX   { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+
+nav       { animation: navDown .65s cubic-bezier(.23,1,.32,1) both; }
+
+/* ── Apple-style Nav ── */
+.nav-apple {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(48px) saturate(180%);
+    -webkit-backdrop-filter: blur(48px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 1px 40px rgba(0,0,0,0.3);
+}
+
+.nav-logo {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 20px;
+    letter-spacing: -.04em;
+    color: #fff;
+    animation: logoSpin3d 8s ease-in-out infinite;
+    transform-style: preserve-3d;
+    display: block;
+}
+.nav-logo:hover {
+    animation-play-state: paused;
+    opacity: .7;
+}
+@keyframes logoSpin3d {
+    0%   { transform: perspective(300px) rotateY(0deg); }
+    40%  { transform: perspective(300px) rotateY(360deg); }
+    100% { transform: perspective(300px) rotateY(360deg); }
+}
+
+.nav-link {
+    position: relative;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    transition: color .25s ease;
+    text-decoration: none;
+    padding-bottom: 2px;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: rgba(255,255,255,.75);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .38s cubic-bezier(.23,1,.32,1);
+}
+.nav-link:hover { color: rgba(255,255,255,.95); }
+.nav-link:hover::after { transform: scaleX(1); }
+
+.nav-cta {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 9px 22px;
+    border-radius: 999px;
+    color: #fff;
+    border: 1px solid rgba(74,144,255,.45);
+    background: rgba(74,144,255,.18);
+    backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 0 16px rgba(74,144,255,.2);
+    transition: all .3s cubic-bezier(.23,1,.32,1);
+}
+.nav-cta:hover {
+    background: rgba(74,144,255,.38);
+    border-color: rgba(122,181,255,.7);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 0 28px rgba(74,144,255,.4);
+}
+.nav-cta:active { transform: scale(.97); }
+.a-tag    { animation: fadeUp  .6s .15s cubic-bezier(.23,1,.32,1) both; }
+.a-h1     { animation: fadeUp  .8s .3s  cubic-bezier(.23,1,.32,1) both; }
+.a-sub    { animation: fadeUp  .7s .5s  cubic-bezier(.23,1,.32,1) both; }
+.a-divider{ animation: scaleX  .8s .65s cubic-bezier(.23,1,.32,1) both; transform-origin:left; }
+.a-fan    { animation: fadeUp  .9s .55s cubic-bezier(.23,1,.32,1) both; }
+
+/* ── Image slideshow keyframe ── */
+@keyframes imgCycle {
+    0%    { opacity: 1; }
+    44%   { opacity: 1; }
+    50%   { opacity: 0; }
+    94%   { opacity: 0; }
+    100%  { opacity: 1; }
+}
+/* Secuencia de 9 imágenes — 1s por imagen, 9s ciclo total */
+@keyframes imgCycleSeq {
+    0%     { opacity: 0; }
+    1%     { opacity: 1; }
+    10%    { opacity: 1; }
+    11.11% { opacity: 0; }
+    100%   { opacity: 0; }
+}
+
+/* ══════════════════════════════════
+   FAN COMPONENT
+   Key design decision:
+   - perspective on scene wrapper → 3D depth feel
+   - fan-group uses rotateX tilt but transform-style:FLAT
+     so z-index works correctly (no preserve-3d)
+   - cards are flex items with negative margins for overlap
+   - hover: z-index:50 lifts above all siblings
+══════════════════════════════════ */
+.fan-scene {
+    perspective: 1100px;
+    perspective-origin: 50% 65%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 0 60px;
+    overflow: visible;
+}
+
+.fan-group {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transform: rotateX(10deg);
+    /* FLAT — no preserve-3d so z-index works */
+    transform-style: flat;
+    transition: transform .12s ease-out;
+}
+
+.fan-card {
+    position: relative;
+    flex-shrink: 0;
+    width: 210px;
+    height: 330px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    /* spacing: slight positive gap so cards don't bleed into each other */
+    margin-left: 12px;
+    transform-origin: bottom center;
+    /* default rotations */
+    transition:
+        transform  .55s cubic-bezier(.23,1,.32,1),
+        filter     .4s  ease,
+        box-shadow .4s  ease;
+    z-index: 1;
+    box-shadow: 0 12px 40px rgba(0,0,0,.18);
+}
+.fan-card:first-child { margin-left: 0; }
+
+/* Fan arc — 4 cards */
+.fan-card:nth-child(1) { transform: rotate(-15deg) translateY(13px); z-index:1; }
+.fan-card:nth-child(2) { transform: rotate(-4deg)  translateY(3px);  z-index:3; width:230px; height:370px; }
+.fan-card:nth-child(3) { transform: rotate(6deg)   translateY(5px);  z-index:2; }
+.fan-card:nth-child(4) { transform: rotate(16deg)  translateY(13px); z-index:1; }
+
+/* Hover: dim all, lift hovered one */
+.fan-group:hover .fan-card {
+    filter: brightness(.38) saturate(.45);
+}
+.fan-group .fan-card:hover {
+    filter:     brightness(1)  saturate(1)  !important;
+    transform:  rotate(0deg) translateY(-42px) scale(1.06) !important;
+    z-index:    50;
+    box-shadow: 0 40px 80px rgba(12,0,223,.3);
+}
+
+/* ── Card inner media ── */
+.card-slides {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+}
+/* each slide stacked, animated cycle */
+.card-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: imgCycle 10s infinite;
+}
+.fan-card:hover .card-slide { animation-play-state: paused; }
+
+/* video slide (Motion card) */
+.card-video {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+
+/* card gradient overlay */
+.card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.88) 0%,
+        rgba(0,0,0,.18) 52%,
+        transparent 100%
+    );
+    padding: 20px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: background .4s ease;
+}
+.fan-card:hover .card-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(12,0,223,.9) 0%,
+        rgba(12,0,223,.15) 55%,
+        transparent 100%
+    );
+}
+
+.card-num {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 9px; letter-spacing: .22em;
+    text-transform: uppercase; color: rgba(255,255,255,.75);
+}
+.card-title {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 900; font-size: 20px;
+    text-transform: uppercase; color: #fff; line-height: 1;
+    transition: transform .4s cubic-bezier(.23,1,.32,1);
+}
+.fan-card:hover .card-title { transform: translateY(-4px); }
+
+.card-tags {
+    display: flex; gap: 5px; margin-top: 8px;
+    opacity: 0; transform: translateY(6px);
+    transition: opacity .3s ease .08s, transform .3s ease .08s;
+}
+.fan-card:hover .card-tags { opacity: 1; transform: translateY(0); }
+.card-tag {
+    font-size: 8px; letter-spacing: .15em; text-transform: uppercase;
+    padding: 3px 7px; border: 1px solid rgba(255,255,255,.2);
+    color: rgba(255,255,255,.75);
+}
+
+/* ── Fan Cards — Responsive ── */
+@media (max-width: 1024px) {
+    .fan-card              { width: 175px; height: 275px; margin-left: 8px; }
+    .fan-card:nth-child(2) { width: 195px; height: 310px; }
+}
+@media (max-width: 640px) {
+    .fan-scene  { padding: 20px 0 40px; overflow: visible; }
+    .fan-group  { transform: rotateX(6deg); }
+    /* Shrink all cards uniformly — 4 cards fit in viewport */
+    .fan-card              { width: 78px; height: 126px; margin-left: 5px; border-radius: 8px; }
+    .fan-card:first-child  { margin-left: 0; }
+    .fan-card:nth-child(2) { width: 86px; height: 138px; }
+    /* Reduce fan arc angles so nothing bleeds off screen */
+    .fan-card:nth-child(1) { transform: rotate(-10deg) translateY(8px);  z-index:1; }
+    .fan-card:nth-child(2) { transform: rotate(-3deg)  translateY(2px);  z-index:3; }
+    .fan-card:nth-child(3) { transform: rotate(4deg)   translateY(3px);  z-index:2; }
+    .fan-card:nth-child(4) { transform: rotate(11deg)  translateY(8px);  z-index:1; }
+    /* Touch hover */
+    .fan-group:hover .fan-card { filter: brightness(.45) saturate(.5); }
+    .fan-group .fan-card:hover { transform: rotate(0deg) translateY(-20px) scale(1.08) !important; z-index:50; }
+    .card-title  { font-size: 11px; }
+    .card-tags   { opacity: 1; transform: none; gap: 3px; margin-top: 4px; }
+    .card-tag    { font-size: 6px; padding: 2px 4px; }
+    .card-overlay { padding: 10px; }
+}
+
+/* ── Scroll reveal ── */
+.reveal { opacity:0; transform:translateY(24px); transition: opacity .6s cubic-bezier(.23,1,.32,1), transform .6s cubic-bezier(.23,1,.32,1); }
+.reveal.in { opacity:1; transform:translateY(0); }
+
+/* ── Footer big text ── */
+.footer-big {
+    font-family: 'Epilogue',sans-serif; font-weight: 900;
+    font-size: clamp(3rem, 9vw, 8.5rem);
+    line-height: .82; letter-spacing: -.02em; text-transform: uppercase;
+    word-break: break-word;
+}
+
+/* ── Footer social rows ── */
+.footer-social-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    text-decoration: none;
+    transition: border-color .25s;
+}
+.footer-social-row:first-child { border-top: 1px solid rgba(255,255,255,.08); }
+.footer-social-row:hover .footer-row-name { color: #ffffff; }
+.footer-social-row:hover .footer-row-arrow { color: #ffffff; transform: translate(2px,-2px); }
+.footer-row-name {
+    font-family: 'Epilogue',sans-serif; font-weight: 600;
+    font-size: 13px; color: rgba(255,255,255,.78);
+    letter-spacing: .02em; transition: color .25s;
+}
+.footer-row-arrow {
+    font-size: 16px; color: rgba(255,255,255,.22);
+    transition: color .25s, transform .25s;
+}
+/* ── Footer image panel ── */
+.footer-img-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    align-self: stretch;
+}
+.footer-img-panel img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+    transition: transform .9s cubic-bezier(.23,1,.32,1);
+}
+.footer-img-panel:hover img { transform: scale(1.04); }
+
+/* ── Bento image ── */
+.bento-wrap { overflow: hidden; }
+.bento-wrap img, .bento-wrap video {
+    width:100%; height:100%; object-fit:cover;
+    transition: transform .7s cubic-bezier(.23,1,.32,1), filter .5s ease;
+    filter: grayscale(30%);
+}
+.bento-wrap:hover img, .bento-wrap:hover video {
+    transform: scale(1.04); filter: grayscale(0%);
+}
+
+/* ══ Hero — Pixel Edition ══ */
+.hero-ref {
+    background: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hero grain removed */
+.hero-ref::before { display: none; }
+
+.hero-corners {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 22px 48px 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+    position: relative;
+    z-index: 1;
+    animation: fadeUp .6s .1s cubic-bezier(.23,1,.32,1) both;
+}
+.hero-corners .corner-right { text-align: right; line-height: 1.7; }
+
+.hero-title-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 32px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin-top: 48px;
+}
+
+/* Entrada */
+@keyframes heroEntrance {
+    from { opacity: 0; transform: scale(.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* Flotación vertical suave */
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-18px); }
+}
+
+/* Píxeles moviéndose — sombras de 1-2px que cambian gentilmente de posición */
+@keyframes pixelShift {
+    0%   { text-shadow:  2px  0   rgba(197,240,0,.5),  -1px  1px rgba(255,255,255,.18),  1px -1px rgba(197,240,0,.2); }
+    20%  { text-shadow: -2px  1px rgba(197,240,0,.4),   2px -1px rgba(255,255,255,.14), -1px  2px rgba(197,240,0,.18); }
+    40%  { text-shadow:  1px -2px rgba(197,240,0,.5),  -1px  2px rgba(255,255,255,.2),   2px  1px rgba(197,240,0,.22); }
+    60%  { text-shadow: -1px  2px rgba(197,240,0,.4),   2px -2px rgba(255,255,255,.15), -2px -1px rgba(197,240,0,.18); }
+    80%  { text-shadow:  2px -1px rgba(197,240,0,.45), -2px  0   rgba(255,255,255,.16),  0px  2px rgba(197,240,0,.2); }
+    100% { text-shadow:  2px  0   rgba(197,240,0,.5),  -1px  1px rgba(255,255,255,.18),  1px -1px rgba(197,240,0,.2); }
+}
+
+/* Título: respira suave — escala + leve flotación */
+@keyframes titleElegant {
+    0%, 100% { transform: scale(1)     translateY(0px); }
+    50%       { transform: scale(1.038) translateY(-8px); }
+}
+.hero-title-float {
+    will-change: transform;
+    animation: titleElegant 8s ease-in-out infinite;
+}
+
+/* Hero: fundido inferior al negro */
+.hero-ref::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 180px;
+    background: linear-gradient(to top, #080808 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* ── Semitono ↔ sólido ── */
+@keyframes halftoneMove {
+    0%   { background-position: 0%   0%, 0px  0px; }
+    50%  { background-position: 100% 0%, 14px 14px; }
+    100% { background-position: 0%   0%, 28px 28px; }
+}
+@keyframes showHalftone {
+    0%, 30%   { opacity: 1; }
+    45%, 80%  { opacity: 0; }
+    95%, 100% { opacity: 1; }
+}
+@keyframes showSolid {
+    0%, 30%   { opacity: 0; }
+    45%, 80%  { opacity: 1; }
+    95%, 100% { opacity: 0; }
+}
+
+.hero-title-stack {
+    display: grid;
+    place-items: center;
+}
+
+.hero-big-title {
+    grid-area: 1 / 1;
+    font-family: 'MBASliceMono', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: clamp(5rem, 16vw, 19rem);
+    line-height: .82;
+    letter-spacing: -.02em;
+    white-space: nowrap;
+    text-align: center;
+    image-rendering: pixelated;
+}
+
+/* Capa A — semitono cuadrado con degradado a blanco */
+.hero-big-title.title-halftone {
+    background-image:
+        linear-gradient(to right, transparent 15%, #4a90ff 50%, #a8c8ff 75%, white 95%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7'%3E%3Crect x='1' y='1' width='3.5' height='3.5' fill='%234a90ff'/%3E%3C/svg%3E");
+    background-size: 250% auto, 7px 7px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation:
+        heroEntrance  1.1s  .2s  cubic-bezier(.23,1,.32,1) both,
+        showHalftone  9s    1.4s ease-in-out               infinite,
+        halftoneMove  2.2s  0s   ease-in-out               infinite;
+}
+
+/* Capa B — sólido blanco */
+.hero-big-title.title-solid {
+    color: #ffffff;
+    opacity: 0;
+    animation: showSolid 9s 1.4s ease-in-out infinite;
+}
+
+/* ── Nav toggles ── */
+.nav-toggle {
+    background: none;
+    border: 1px solid rgba(255,255,255,.13);
+    color: rgba(255,255,255,.5);
+    width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 6px;
+    font-size: 10px; letter-spacing: .08em;
+    font-family: 'Space Grotesk', monospace;
+    transition: all .2s ease;
+}
+.nav-toggle:hover { color: #fff; border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.05); }
+.nav-toggle .material-symbols-outlined { font-size: 15px; }
+
+/* ── Nav Pill Switch — Apple liquid glass ── */
+.nav-pill {
+    position: relative;
+    display: flex; align-items: center;
+    /* Glass base */
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    /* Refraction border */
+    border: 1px solid rgba(255,255,255,.18);
+    border-bottom-color: rgba(255,255,255,.08);
+    /* Depth */
+    box-shadow:
+        0 2px 12px rgba(0,0,0,.3),
+        inset 0 1px 0 rgba(255,255,255,.18),
+        inset 0 -1px 0 rgba(0,0,0,.12);
+    border-radius: 999px;
+    padding: 3px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.nav-pill input { display: none; }
+
+.nav-pill-chip {
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 26px; height: 20px;
+    border-radius: 999px;
+    /* Chip azul en dark mode */
+    background: linear-gradient(145deg, #5fa8ff, #3a7fe8);
+    box-shadow:
+        0 1px 6px rgba(74,144,255,.55),
+        inset 0 1px 0 rgba(255,255,255,.25);
+    transition: transform .28s cubic-bezier(.4,0,.2,1),
+                background .25s ease,
+                box-shadow .25s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Chip blanco en light mode */
+.nav-pill input:checked ~ .nav-pill-chip {
+    background: linear-gradient(145deg, #ffffff, #e8e8e8);
+    box-shadow:
+        0 1px 6px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+/* Lang pill: chip azul siempre */
+.nav-pill:not(label) .nav-pill-chip {
+    background: linear-gradient(145deg, #5fa8ff, #3a7fe8);
+    box-shadow: 0 1px 6px rgba(74,144,255,.55), inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+.nav-pill-opt {
+    position: relative; z-index: 1;
+    width: 26px; height: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    color: rgba(255,255,255,.45);
+    transition: color .2s;
+    user-select: none;
+    border-radius: 999px;
+}
+
+/* Chip a la derecha */
+.nav-pill input:checked ~ .nav-pill-chip,
+.nav-pill.pill-right .nav-pill-chip { transform: translateX(26px); }
+
+/* Ícono/texto activo — blanco sobre chip azul, oscuro sobre chip blanco */
+.nav-pill input:not(:checked) ~ .nav-pill-opt:first-of-type,
+.nav-pill:not(.pill-right) .nav-pill-opt:first-of-type { color: #fff; }
+.nav-pill input:checked ~ .nav-pill-opt:last-of-type { color: #1a1a1a; }
+.nav-pill.pill-right .nav-pill-opt:last-of-type { color: #fff; }
+
+/* ── Light Mode ── */
+html.light-mode body { background-color: #efefef !important; }
+html.light-mode .hero-ref { background: #efefef !important; }
+html.light-mode .hero-ref::after { background: linear-gradient(to top, #efefef 0%, transparent 100%) !important; }
+html.light-mode .grid-bg { opacity: .03 !important; }
+html.light-mode .grain { opacity: .015 !important; }
+html.light-mode .nav-apple {
+    background: rgba(10,10,10,.85) !important;
+    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    box-shadow: 0 1px 40px rgba(0,0,0,.3) !important;
+}
+/* Textos pequeños y elementos generales en light mode */
+html.light-mode { color: #0a0a0a; }
+html.light-mode .hero-corners { color: rgba(0,0,0,.75) !important; }
+html.light-mode .casos-eyebrow { color: #1a3fff !important; opacity: 1 !important; }
+html.light-mode .casos-eyebrow::before { background: #1a3fff !important; opacity: 1 !important; }
+html.light-mode .tool-item { color: #0a0a0a !important; }
+html.light-mode .tool-item span { color: #0a0a0a !important; }
+html.light-mode .tool-text-label { color: #0a0a0a !important; border-color: rgba(0,0,0,.3) !important; }
+html.light-mode .tool-item img.tool-img { filter: invert(1) !important; }
+html.light-mode .tool-item img.tool-img-appicon { outline-color: rgba(0,0,0,.12) !important; }
+html.light-mode .border-t { border-color: rgba(0,0,0,.1) !important; }
+html.light-mode .sobre-stat-num, html.light-mode .text-on-surface { color: #0a0a0a !important; }
+html.light-mode .title-solid { color: #0a0a0a !important; }
+html.light-mode .title-halftone {
+    background-image:
+        linear-gradient(to right, transparent 15%, #4a90ff 50%, #2255cc 80%, #0a0a0a 95%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7'%3E%3Crect x='1' y='1' width='3.5' height='3.5' fill='%234a90ff'/%3E%3C/svg%3E") !important;
+}
+html.light-mode { --hero-small-text: #0a0a0a; }
+html.light-mode .hero-ref .hero-bottom-bar .hero-meta,
+html.light-mode .hero-ref .hero-bottom-bar .hero-meta span,
+html.light-mode .hero-ref .hero-bottom-bar .hero-desc { color: #0a0a0a !important; }
+html.light-mode .hero-bottom-bar { border-top-color: rgba(0,0,0,.1) !important; }
+html.light-mode .fan-card {
+    background-color: #d5d5d5 !important;
+    box-shadow: 0 8px 32px rgba(74,144,255,.45), 0 2px 10px rgba(74,144,255,.25) !important;
+}
+html.light-mode .fan-group .fan-card:hover {
+    box-shadow: 0 20px 60px rgba(74,144,255,.65), 0 4px 16px rgba(74,144,255,.35) !important;
+}
+html.light-mode .card-title { color: #0a0a0a !important; }
+html.light-mode .card-tag { border-color: rgba(0,0,0,.3) !important; color: #1a1a1a !important; }
+html.light-mode .card-overlay { background: linear-gradient(to top, rgba(200,200,200,.95) 0%, rgba(200,200,200,.2) 55%, transparent 100%) !important; }
+html.light-mode .bg-surface-container,
+html.light-mode .bg-surface-container-low,
+html.light-mode .bg-surface-container-high,
+html.light-mode .bg-surface-container-highest { background-color: #e0e0e0 !important; }
+html.light-mode .text-on-surface { color: #0a0a0a !important; }
+html.light-mode .text-on-surface-variant { color: #1a1a1a !important; }
+html.light-mode .text-outline { color: #1a1a1a !important; }
+html.light-mode .border-outline-variant\/20,
+html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !important; }
+
+/* Canvas trail */
+#px-trail {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99998;
+}
+
+.hero-bottom-bar {
+    padding: 32px 48px 46px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,.08);
+    position: relative;
+    z-index: 1;
+    animation: fadeUp .7s .55s cubic-bezier(.23,1,.32,1) both;
+}
+.hero-meta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--hero-small-text, #ffffff);
+    margin-bottom: 8px;
+}
+.hero-desc {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--hero-small-text, #ffffff);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.9;
+}
+
+/* ── SECUENCIA ARTE DIGITAL (12 imgs, 1.3s c/u, 15.6s ciclo) ── */
+@keyframes imgSeq14 {
+    0%     { opacity: 0; }
+    1%     { opacity: 1; }
+    7%     { opacity: 1; }
+    8.33%  { opacity: 0; }
+    100%   { opacity: 0; }
+}
+.art-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: imgSeq14 15.6s infinite;
+}
+
+/* ── SECUENCIA SOBRE MÍ (3 items, 3s c/u, 9s ciclo) ── */
+@keyframes sobrePhotoZoom {
+    0%   { transform: scale(1); }
+    30%  { transform: scale(1.07); }
+    33%  { transform: scale(1.07); }
+    34%  { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+@keyframes sobreMiSeq {
+    0%   { opacity: 1; }
+    30%  { opacity: 1; }
+    33%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+.sobre-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0;
+    animation: sobreMiSeq 9s infinite, sobrePhotoZoom 9s ease-in-out infinite;
+}
+.sobre-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: sobreMiSeq 9s infinite;
+}
+
+/* ── ESTRELLA PIXELADA ANIMADA ── */
+@keyframes starSpin {
+    0%   { transform: rotate(0deg)   scale(1);   opacity: 1; }
+    50%  { transform: rotate(180deg) scale(1.5); opacity: 0.4; }
+    100% { transform: rotate(360deg) scale(1);   opacity: 1; }
+}
+.pixel-star {
+    display: inline-block;
+    font-family: 'PixeledEnglish', monospace;
+    font-size: 8px;
+    color: #4a90ff;
+    animation: starSpin 2.5s linear infinite;
+    line-height: 1;
+}
+
+/* ── CASO PANELS ── */
+.caso-panel {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.caso-panel.active { display: block; }
+.caso-panel iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow-y: auto;
+}
+
+/* ── CASO TABS ── */
+.caso-tab {
+    position: relative;
+    transition: all .3s cubic-bezier(.23,1,.32,1);
+}
+.caso-tab::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -1px;
+    width: 0; height: 1.5px;
+    background: #4a90ff;
+    transition: width .45s cubic-bezier(.23,1,.32,1);
+}
+.caso-tab.active::after { width: 100%; }
+.caso-tab.active .tab-name { color: #4a90ff; }
+.caso-tab.active .tab-num { opacity: 1; color: #4a90ff; }
+.caso-tab:hover .tab-name { color: #4a90ff; transform: translateX(4px); }
+.tab-num {
+    font-family: 'terminal-grotesque', monospace;
+    font-size: 10px;
+    letter-spacing: .15em;
+    color: #4a90ff;
+    opacity: 0.4;
+    transition: opacity .3s ease, color .3s ease;
+    margin-right: 14px;
+    flex-shrink: 0;
+}
+.tab-name {
+    font-size: 1.25rem;
+    font-family: var(--font-headline, sans-serif);
+    text-transform: uppercase;
+    font-weight: 900;
+    transition: color .3s ease, transform .3s ease;
+    display: inline-block;
+}
+
+/* ── CASO PANEL ── */
+.caso-panel-wrap {
+    position: relative;
+    border: 1px solid rgba(74,144,255,.18);
+    box-shadow: 0 0 60px rgba(74,144,255,.07), 0 24px 48px rgba(0,0,0,.25);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.caso-panel-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 100%);
+    font-family: 'terminal-grotesque', monospace;
+    font-size: 9px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    z-index: 10;
+    transition: opacity .4s ease;
+}
+#casosDesc { transition: opacity .18s ease; }
+.casos-eyebrow {
+    font-family: 'terminal-grotesque', monospace;
+    font-size: 9px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: #4a90ff;
+    opacity: .7;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.casos-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: #4a90ff;
+    opacity: .6;
+}
+
+/* ── TOOLS MARQUEE ── */
+.tools-marquee-section { overflow: hidden; }
+.marquee-outer {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 40s linear infinite;
+    gap: 0;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 0 32px;
+    opacity: 0.55;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: default;
+}
+.tool-item:hover { opacity: 1; transform: translateY(-4px); }
+.tool-item img.tool-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    filter: var(--tool-icon-filter);
+}
+.tool-item img.tool-img-color {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+.tool-item img.tool-img-appicon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: 8px;
+    outline: 1px solid rgba(255,255,255,0.15);
+}
+.tool-item iconify-icon {
+    display: block;
+    width: 36px;
+    height: 36px;
+}
+.tool-item iconify-icon.si-icon {
+    filter: var(--tool-icon-filter);
+}
+.tool-item span {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    font-family: 'terminal-grotesque', monospace;
+}
+.tool-text-label {
+    font-size: 13px;
+    font-family: 'terminal-grotesque', monospace;
+    letter-spacing: 0.06em;
+    padding-top: 6px;
+    white-space: nowrap;
+    border: 1px solid currentColor;
+    padding: 4px 10px;
+    border-radius: 4px;
+    opacity: 0.7;
+    margin-bottom: 2px;
+}
+/* Colores de íconos según tema — sin filtro, todos son logos a color */
+</style>
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+
+<!-- ── Pixel Trail ── -->
+<canvas id="px-trail"></canvas>
+
+<!-- Background -->
+<div class="blob-wrap">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+</div>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="nav-apple fixed top-0 w-full z-50 flex items-center justify-between md:grid md:grid-cols-3 px-5 md:px-8 lg:px-14 py-2">
+    <a href="#hero"><img src="MP_LOGO_WHITE.png" alt="MP" class="nav-logo" style="height:32px; width:auto; object-fit:contain;"></a>
+    <div class="hidden md:flex justify-center items-center gap-10">
+        <a class="nav-link" href="#disciplinas" data-es="Servicios" data-en="Services">Servicios</a>
+        <a class="nav-link" href="#sobre-mi" data-es="Sobre mí" data-en="About">Sobre mí</a>
+        <a class="nav-link" href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+    </div>
+    <div class="flex items-center justify-end gap-4">
+        <!-- Theme switch: 🌙 dark / ☀️ light -->
+        <label class="nav-pill" id="theme-btn" title="Dark / Light">
+            <input type="checkbox" id="theme-checkbox">
+            <div class="nav-pill-chip"></div>
+            <span class="nav-pill-opt">🌙</span>
+            <span class="nav-pill-opt">☀️</span>
+        </label>
+        <!-- Lang switch: ES / EN -->
+        <button class="nav-pill" id="lang-btn" title="Idioma">
+            <div class="nav-pill-chip"></div>
+            <span class="nav-pill-opt" style="font-size:9px;letter-spacing:.05em;font-family:'Space Grotesk',sans-serif;font-weight:600;">ES</span>
+            <span class="nav-pill-opt" style="font-size:9px;letter-spacing:.05em;font-family:'Space Grotesk',sans-serif;font-weight:600;">EN</span>
+        </button>
+        <a href="#contacto" class="nav-cta hidden sm:inline-flex" data-es="Contáctame" data-en="Let's talk">Contáctame</a>
+    </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<main class="relative z-10 overflow-hidden" id="trabajo">
+<section class="hero-ref" id="hero">
+
+    <!-- Esquinas -->
+    <div class="hero-corners">
+        <span>©2026</span>
+        <span>Martín Pizarro</span>
+        <div class="corner-right">
+            Design Portfolio<br/>Diseñador Gráfico · Chile
+        </div>
+    </div>
+
+    <!-- Título principal -->
+    <div class="hero-title-wrap">
+        <div class="hero-title-float">
+            <div class="hero-title-stack">
+                <h1 class="hero-big-title title-halftone">Portfolio</h1>
+                <h1 class="hero-big-title title-solid">Portfolio</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Texto inferior -->
+    <div class="hero-bottom-bar">
+        <p class="hero-meta">Martín Pizarro · <span data-es="Diseñador Gráfico" data-en="Graphic Designer">Diseñador Gráfico</span> · Chile · ©2026</p>
+        <p class="hero-desc" data-es="Identidad visual · Motion Graphics · Arte Digital" data-en="Visual Identity · Motion Graphics · Digital Art">Identidad visual · Motion Graphics · Arte Digital</p>
+    </div>
+
+</section>
+
+<!-- ── Fan Cards ── -->
+<section class="a-fan px-0 pt-10 pb-6" id="disciplinas">
+    <div class="fan-scene" id="fanScene">
+        <div class="fan-group" id="fanGroup">
+
+            <!-- Card 1 — Motion Graphics -->
+            <div class="fan-card" data-cat="motion" style="cursor:pointer">
+                <div class="card-slides">
+                    <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" src="assets/cards/motion/MOTION_3D.gif" alt=""/>
+                </div>
+                <div class="card-overlay">
+                    <span></span>
+                    <div>
+                        <h3 class="card-title">Motion & 3D</h3>
+                        <div class="card-tags">
+                            <span class="card-tag">Animación</span>
+                            <span class="card-tag">Render</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 — Branding (center, featured) -->
+            <div class="fan-card" data-cat="branding" style="cursor:pointer">
+                <div class="card-slides">
+                    <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" src="assets/cards/branding/Brandinggif.gif" alt=""/>
+                </div>
+                <div class="card-overlay" style="background:linear-gradient(to top,rgba(12,0,223,.9) 0%,rgba(0,0,0,.15) 55%,transparent 100%);">
+                    <span></span>
+                    <div>
+                        <h3 class="card-title">Branding</h3>
+                        <div class="card-tags">
+                            <span class="card-tag">Estrategia</span>
+                            <span class="card-tag">Visual</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 — Arte Digital (9 imágenes en secuencia) -->
+            <div class="fan-card" data-cat="arte" style="cursor:pointer">
+                <div class="card-slides">
+                    <img class="card-slide" style="animation:imgCycleSeq 9s  0s  infinite" src="assets/cards/arte/Portada.png" alt=""/>
+                    <img class="card-slide" style="animation:imgCycleSeq 9s -1s  infinite" src="assets/cards/arte/Puma.png" alt=""/>
+                    <img class="card-slide" style="animation:imgCycleSeq 9s -2s  infinite" src="assets/cards/arte/COPYPASTE CAT.png" alt=""/>
+                    <img class="card-slide" style="animation:imgCycleSeq 9s -3s  infinite" src="assets/cards/arte/Historias.png" alt=""/>
+                    <img class="card-slide" style="animation:imgCycleSeq 9s -4s  infinite" src="assets/cards/arte/Indice 2.png" alt=""/>
+                    <img class="card-slide" style="animation:imgCycleSeq 9s -5s  infinite" src="assets/cards/arte/Pagina 8.png" alt=""/>
+                    <img class="card-slide" style="animation:imgCycleSeq 9s -6s  infinite" src="assets/cards/arte/Pagina 9.png" alt=""/>
+                    <img class="card-slide" style="animation:imgCycleSeq 9s -7s  infinite" src="assets/cards/arte/Pagina 10.png" alt=""/>
+                    <img class="card-slide" style="animation:imgCycleSeq 9s -8s  infinite" src="assets/cards/arte/Pagina 13.png" alt=""/>
+                </div>
+                <div class="card-overlay">
+                    <span></span>
+                    <div>
+                        <h3 class="card-title" data-es="Arte Digital" data-en="Digital Art">Arte Digital</h3>
+                        <div class="card-tags">
+                            <span class="card-tag">Ilustración</span>
+                            <span class="card-tag">Creación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 — Proyectos -->
+            <div class="fan-card" data-cat="proyectos" style="cursor:pointer">
+                <div class="card-slides">
+                    <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" src="assets/cards/proyectos/PROYECTOSGIF.gif" alt=""/>
+                </div>
+                <div class="card-overlay">
+                    <span></span>
+                    <div>
+                        <h3 class="card-title" data-es="Proyectos" data-en="Projects">Proyectos</h3>
+                        <div class="card-tags">
+                            <span class="card-tag">Dirección</span>
+                            <span class="card-tag">Cultura</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /fan-group -->
+    </div><!-- /fan-scene -->
+</section>
+
+<!-- ══════════════════ TOOLS MARQUEE ══════════════════ -->
+<section class="tools-marquee-section py-14 border-t border-outline-variant/20">
+    <p class="text-center text-sm tracking-widest uppercase mb-10 opacity-40 font-mono" data-es="Herramientas" data-en="Tools">Herramientas</p>
+    <div class="marquee-outer">
+        <div class="marquee-track">
+            <!-- SET 1 -->
+            <div class="tool-item"><iconify-icon icon="logos:adobe-photoshop" width="36" height="36"></iconify-icon><span>Photoshop</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-illustrator" width="36" height="36"></iconify-icon><span>Illustrator</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-premiere" width="36" height="36"></iconify-icon><span>Premiere Pro</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-after-effects" width="36" height="36"></iconify-icon><span>After Effects</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-indesign" width="36" height="36"></iconify-icon><span>InDesign</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-animate" width="36" height="36"></iconify-icon><span>Animate</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:figma" width="36" height="36"></iconify-icon><span>Figma</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:blender" width="36" height="36"></iconify-icon><span>Blender</span></div>
+            <div class="tool-item"><img src="assets/icons/behance.svg" alt="Behance" width="36" height="36" class="tool-img-color"><span>Behance</span></div>
+            <div class="tool-item"><img src="assets/icons/Canva_Logo_0.svg" alt="Canva" width="36" height="36" class="tool-img-color"><span>Canva</span></div>
+            <div class="tool-item"><img src="assets/icons/garage-band.svg" alt="GarageBand" width="36" height="36" class="tool-img-color"><span>GarageBand</span></div>
+            <div class="tool-item"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Claude_AI_symbol.svg" alt="Claude" width="36" height="36" class="tool-img-color"><span>Claude</span></div>
+            <div class="tool-item"><img src="assets/icons/Nomadsculpt.svg" alt="Nomad Sculpt" width="36" height="36" class="tool-img-color"><span>Nomad Sculpt</span></div>
+            <div class="tool-item"><img src="assets/icons/procreate.svg" alt="Procreate" width="36" height="36" class="tool-img-color"><span>Procreate</span></div>
+            <div class="tool-item"><img src="assets/icons/Procreatedreams.svg" alt="Procreate Dreams" width="36" height="36" class="tool-img-appicon"><span>Procreate Dreams</span></div>
+            <div class="tool-item"><img src="assets/icons/Sketchbook.svg" alt="Sketchbook" width="36" height="36" class="tool-img-color"><span>Sketchbook</span></div>
+            <!-- SET 2 (duplicado para loop infinito) -->
+            <div class="tool-item"><iconify-icon icon="logos:adobe-photoshop" width="36" height="36"></iconify-icon><span>Photoshop</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-illustrator" width="36" height="36"></iconify-icon><span>Illustrator</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-premiere" width="36" height="36"></iconify-icon><span>Premiere Pro</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-after-effects" width="36" height="36"></iconify-icon><span>After Effects</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-indesign" width="36" height="36"></iconify-icon><span>InDesign</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:adobe-animate" width="36" height="36"></iconify-icon><span>Animate</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:figma" width="36" height="36"></iconify-icon><span>Figma</span></div>
+            <div class="tool-item"><iconify-icon icon="logos:blender" width="36" height="36"></iconify-icon><span>Blender</span></div>
+            <div class="tool-item"><img src="assets/icons/behance.svg" alt="Behance" width="36" height="36" class="tool-img-color"><span>Behance</span></div>
+            <div class="tool-item"><img src="assets/icons/Canva_Logo_0.svg" alt="Canva" width="36" height="36" class="tool-img-color"><span>Canva</span></div>
+            <div class="tool-item"><img src="assets/icons/garage-band.svg" alt="GarageBand" width="36" height="36" class="tool-img-color"><span>GarageBand</span></div>
+            <div class="tool-item"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Claude_AI_symbol.svg" alt="Claude" width="36" height="36" class="tool-img-color"><span>Claude</span></div>
+            <div class="tool-item"><img src="assets/icons/Nomadsculpt.svg" alt="Nomad Sculpt" width="36" height="36" class="tool-img-color"><span>Nomad Sculpt</span></div>
+            <div class="tool-item"><img src="assets/icons/procreate.svg" alt="Procreate" width="36" height="36" class="tool-img-color"><span>Procreate</span></div>
+            <div class="tool-item"><img src="assets/icons/Procreatedreams.svg" alt="Procreate Dreams" width="36" height="36" class="tool-img-appicon"><span>Procreate Dreams</span></div>
+            <div class="tool-item"><img src="assets/icons/Sketchbook.svg" alt="Sketchbook" width="36" height="36" class="tool-img-color"><span>Sketchbook</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ CASOS SELECCIONADOS ══════════════════ -->
+<section class="px-6 lg:px-16 py-20 reveal" id="casos">
+    <div class="max-w-6xl mx-auto grid grid-cols-12 gap-8 lg:gap-12 items-center">
+
+    <!-- Panel de contenido (portrait) -->
+    <div class="col-span-12 md:col-span-4 md:order-1 caso-panel-wrap bg-surface-container-highest mx-auto" style="aspect-ratio:3/4; max-height:500px; width:100%;">
+        <!-- Panel Motion & 3D -->
+        <div class="caso-panel" data-panel="motion">
+            <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;">
+                <source src="assets/casos/motion/Casos_motion3d.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Panel Branding -->
+        <div class="caso-panel" data-panel="branding">
+            <iframe src="https://www.behance.net/embed/project/236880785?ilo0=1" scrolling="yes" allowfullscreen lazyload frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+
+        <!-- Panel Arte Digital -->
+        <div class="caso-panel" data-panel="arte">
+            <img class="art-slide" style="animation-delay:0s"     src="assets/casos/arte/Puma.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-1.3s"  src="assets/casos/arte/COPYPASTE CAT.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-2.6s"  src="assets/casos/arte/Chucao.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-3.9s"  src="assets/casos/arte/Historias.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-5.2s"  src="assets/casos/arte/Indice 2.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-6.5s"  src="assets/casos/arte/Pagina 5.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-7.8s"  src="assets/casos/arte/Pagina 8.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-9.1s"  src="assets/casos/arte/Pagina 9.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-10.4s" src="assets/casos/arte/Pagina 10.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-11.7s" src="assets/casos/arte/Pagina 13.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-13.0s" src="assets/casos/arte/Pokemon sureño.png" alt=""/>
+            <img class="art-slide" style="animation-delay:-14.3s" src="assets/casos/arte/lechuza blanca.png" alt=""/>
+        </div>
+
+        <!-- Panel Proyectos Personales -->
+        <div class="caso-panel" data-panel="proyectos">
+            <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;">
+                <source src="assets/casos/proyectos/proyectos personales.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Label del panel -->
+        <div class="caso-panel-label" id="panelLabel">Motion & 3D</div>
+    </div>
+
+    <!-- Texto + Tabs -->
+    <div class="col-span-12 md:col-span-8 md:order-2 flex flex-col justify-between px-0 lg:px-8" style="min-height:440px;">
+
+        <div>
+            <p class="casos-eyebrow" data-es="Trabajo Seleccionado" data-en="Selected Work">Trabajo Seleccionado</p>
+            <h5 class="font-headline font-black uppercase leading-[.85] text-on-surface" style="font-size:clamp(2.8rem,5vw,4.5rem);">
+                <span data-es="Casos" data-en="Selected">Casos</span><br/>
+                <span class="text-primary" data-es="Seleccionados" data-en="Works">Seleccionados</span>
+            </h5>
+            <p id="casosDesc" class="mt-6 text-on-surface-variant text-sm leading-relaxed max-w-md">
+                Cada proyecto es una declaración de intención. Identidad, movimiento y arte al servicio de la comunicación.
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <div class="caso-tab flex justify-between items-center border-b border-outline-variant/40 pb-5 pt-2 group cursor-pointer" data-cat="motion">
+                <div class="flex items-center gap-0">
+                    <span class="tab-num">01</span>
+                    <span class="tab-name" data-es="Motion & 3D" data-en="Motion & 3D">Motion & 3D</span>
+                </div>
+                <span class="pixel-star">✦</span>
+            </div>
+            <div class="caso-tab flex justify-between items-center border-b border-outline-variant/40 pb-5 pt-5 group cursor-pointer" data-cat="branding">
+                <div class="flex items-center">
+                    <span class="tab-num">02</span>
+                    <span class="tab-name" data-es="Branding" data-en="Branding">Branding</span>
+                </div>
+                <span class="pixel-star" style="animation-delay:-.8s">✦</span>
+            </div>
+            <div class="caso-tab flex justify-between items-center border-b border-outline-variant/40 pb-5 pt-5 group cursor-pointer" data-cat="arte">
+                <div class="flex items-center">
+                    <span class="tab-num">03</span>
+                    <span class="tab-name" data-es="Arte Digital" data-en="Digital Art">Arte Digital</span>
+                </div>
+                <span class="pixel-star" style="animation-delay:-1.6s">✦</span>
+            </div>
+            <div class="caso-tab flex justify-between items-center border-b border-outline-variant/40 pb-5 pt-5 group cursor-pointer" data-cat="proyectos">
+                <div class="flex items-center">
+                    <span class="tab-num">04</span>
+                    <span class="tab-name" data-es="Proyectos Personales" data-en="Personal Projects">Proyectos Personales</span>
+                </div>
+                <span class="pixel-star" style="animation-delay:-2.4s">✦</span>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+
+</section>
+
+<!-- ══════════════════ SOBRE MÍ ══════════════════ -->
+<section class="px-6 lg:px-16 py-20 border-t border-outline-variant/20 reveal" id="sobre-mi">
+    <div class="max-w-6xl mx-auto">
+
+        <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+
+            <!-- Foto -->
+            <div class="flex-shrink-0 w-full lg:w-72">
+                <div class="relative w-full lg:w-72 aspect-[3/4] bg-surface-container border border-outline-variant/30 overflow-hidden">
+                    <img  class="sobre-photo" style="animation-delay:0s"  src="assets/sobre-mi/Yo.jpeg" alt="Martín Pizarro"/>
+                    <video class="sobre-video" style="animation-delay:-3s" autoplay muted loop playsinline>
+                        <source src="assets/sobre-mi/Volcan.mp4" type="video/mp4">
+                    </video>
+                    <video class="sobre-video" style="animation-delay:-6s" autoplay muted loop playsinline>
+                        <source src="assets/sobre-mi/Naturaleza.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute bottom-0 left-0 right-0 h-1 bg-[#4a90ff] z-10"></div>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-5">
+                    <span class="text-[10px] uppercase tracking-widest px-3 py-1.5 border border-outline-variant/40 text-outline">Branding</span>
+                    <span class="text-[10px] uppercase tracking-widest px-3 py-1.5 border border-outline-variant/40 text-outline">Motion</span>
+                    <span class="text-[10px] uppercase tracking-widest px-3 py-1.5 border border-outline-variant/40 text-outline">Arte Digital</span>
+                    <span class="text-[10px] uppercase tracking-widest px-3 py-1.5 border border-outline-variant/40 text-outline">3D</span>
+                </div>
+            </div>
+
+            <!-- Texto -->
+            <div class="flex-1">
+                <p class="font-mono text-[10px] uppercase tracking-[.3em] text-[#4a90ff] mb-6" data-es="Sobre mí" data-en="About me">Sobre mí</p>
+                <h2 class="font-headline text-4xl lg:text-6xl font-black uppercase leading-[.9] text-on-surface mb-10">
+                    Martín<br/>Pizarro
+                </h2>
+                <p class="text-on-surface-variant text-sm leading-relaxed max-w-lg mb-4" style="text-wrap:pretty"
+                   data-es="Soy Martín Pizarro, diseñador gráfico chileno de 28 años, originario de Hornopirén, un pequeño pueblo al sur de Chile rodeado de naturaleza. Actualmente resido en Valparaíso. Crecer en el sur ha influido profundamente en mi forma de ver el mundo y de crear, entregándome la calma y la inspiración necesarias para explorar distintas disciplinas artísticas."
+                   data-en="I'm Martín Pizarro, a 28-year-old Chilean graphic designer from Hornopirén, a small town in southern Chile surrounded by nature. I currently live in Valparaíso. Growing up in the south has deeply shaped the way I see the world and create, giving me the calm and inspiration to explore different artistic disciplines.">
+                    Soy Martín Pizarro, diseñador gráfico chileno de 28 años, originario de Hornopirén, un pequeño pueblo al sur de Chile rodeado de naturaleza. Actualmente resido en Valparaíso. Crecer en el sur ha influido profundamente en mi forma de ver el mundo y de crear, entregándome la calma y la inspiración necesarias para explorar distintas disciplinas artísticas.
+                </p>
+                <p class="text-on-surface-variant text-sm leading-relaxed max-w-lg mb-12" style="text-wrap:pretty"
+                   data-es="Mi trabajo se desarrolla principalmente en el ámbito del arte digital, donde he participado en proyectos de animación, motion graphics, branding y creación de piezas visuales para artistas. Además, he incursionado en áreas como la música para documentales y la serigrafía. Disfruto combinar lo técnico con lo artístico, buscando generar propuestas visuales que conecten con las personas y transmitan una identidad clara."
+                   data-en="My work revolves around digital art — animation, motion graphics, branding and visual pieces for artists. I've also ventured into music for documentaries and screen printing. I enjoy combining the technical with the artistic, crafting proposals that connect with people and convey a clear identity.">
+                    Mi trabajo se desarrolla principalmente en el ámbito del arte digital, donde he participado en proyectos de animación, motion graphics, branding y creación de piezas visuales para artistas. Además, he incursionado en áreas como la música para documentales y la serigrafía. Disfruto combinar lo técnico con lo artístico, buscando generar propuestas visuales que conecten con las personas y transmitan una identidad clara.
+                </p>
+                <div class="flex gap-12 border-t border-outline-variant/20 pt-8">
+                    <div>
+                        <p class="text-3xl font-headline font-black text-on-surface">3</p>
+                        <p class="text-[10px] uppercase tracking-widest text-outline mt-1" data-es="Años de experiencia" data-en="Years of experience">Años de experiencia</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-headline font-black text-[#4a90ff]">CL</p>
+                        <p class="text-[10px] uppercase tracking-widest text-outline mt-1">Chile</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-headline font-black text-on-surface">ES / EN</p>
+                        <p class="text-[10px] uppercase tracking-widest text-outline mt-1" data-es="Idiomas" data-en="Languages">Idiomas</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+</main>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="relative overflow-hidden" id="contacto" style="background:#080808;">
+
+    <!-- Imagen de fondo -->
+    <div class="absolute inset-0 pointer-events-none">
+        <img src="assets/footer/Footer.png"
+             alt="" aria-hidden="true"
+             style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:.35;display:block;">
+        <!-- Overlay: funde la imagen con el fondo de la página arriba, oscurece abajo -->
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom, #080808 0%, rgba(8,8,8,.4) 25%, rgba(0,0,0,.3) 60%, rgba(0,0,0,.85) 100%);"></div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="px-6 lg:px-16 pt-14 pb-0 relative z-10">
+
+        <!-- Grid 2 columnas -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-start">
+
+            <!-- IZQUIERDA: Headline + descripción + redes -->
+            <div class="pb-16">
+
+                <!-- Eyebrow -->
+                <div class="flex items-center gap-3 mb-10">
+                    <span class="pixel-star" style="color:#fff;font-size:8px;">✦</span>
+                    <p class="font-mono text-[13px] uppercase tracking-[.18em]" style="color:rgba(255,255,255,.82);"
+                       data-es="¿Tienes un proyecto?" data-en="Got a project?">¿Tienes un proyecto?</p>
+                </div>
+
+                <h2 class="footer-big" style="color:#ffffff;white-space:nowrap;"
+                    data-es="Hablemos." data-en="Let's talk.">Hablemos.</h2>
+
+                <p class="mt-7 text-sm leading-relaxed max-w-sm"
+                   style="color:rgba(255,255,255,.72);"
+                   data-es="Disponible para proyectos de branding, motion y arte digital. Respondiendo en menos de 24h."
+                   data-en="Available for branding, motion and digital art projects. Responding within 24h.">
+                    Disponible para proyectos de branding, motion y arte digital. Respondiendo en menos de 24h.
+                </p>
+
+                <!-- Social links -->
+                <div class="mt-12">
+                    <p class="font-mono text-[9px] uppercase tracking-[.28em] mb-1"
+                       style="color:rgba(255,255,255,.38);"
+                       data-es="Encuéntrame en" data-en="Find me on">Encuéntrame en</p>
+
+                    <a href="https://instagram.com/copypaste.art/" target="_blank" class="footer-social-row">
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="mdi:instagram" width="16" height="16" style="color:rgba(255,255,255,.55);flex-shrink:0;"></iconify-icon>
+                            <span class="footer-row-name">Instagram</span>
+                        </div>
+                        <span class="material-symbols-outlined footer-row-arrow">arrow_outward</span>
+                    </a>
+
+                    <a href="https://behance.net/martinpizarro3" target="_blank" class="footer-social-row">
+                        <div class="flex items-center gap-3">
+                            <img src="assets/icons/behance.svg" width="16" height="16" alt="Behance" style="flex-shrink:0;filter:brightness(0) invert(1);">
+                            <span class="footer-row-name">Behance</span>
+                        </div>
+                        <span class="material-symbols-outlined footer-row-arrow">arrow_outward</span>
+                    </a>
+
+                    <a href="#" class="footer-social-row"
+                       onclick="event.preventDefault();window.open('https://mail.google.com/mail/?view=cm&fs=1&to=martinpizarroespana@gmail.com','gmailCompose','width=700,height=600,scrollbars=yes,resizable=yes');">
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="logos:google-gmail" width="16" height="16" style="flex-shrink:0;"></iconify-icon>
+                            <span class="footer-row-name">Gmail</span>
+                        </div>
+                        <span class="material-symbols-outlined footer-row-arrow">arrow_outward</span>
+                    </a>
+
+                    <a href="#" class="footer-social-row"
+                       onclick="event.preventDefault();window.open('https://wa.me/56933451599','whatsappChat','width=500,height=700,scrollbars=yes,resizable=yes');">
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="logos:whatsapp-icon" width="16" height="16" style="flex-shrink:0;"></iconify-icon>
+                            <span class="footer-row-name">WhatsApp</span>
+                        </div>
+                        <span class="material-symbols-outlined footer-row-arrow">arrow_outward</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Barra inferior -->
+    <div class="px-6 lg:px-16 py-5 flex flex-col lg:flex-row justify-between items-center gap-3 relative z-10"
+         style="border-top:1px solid rgba(255,255,255,.1);">
+        <img src="MP_LOGO_WHITE.png" alt="MP" style="height:16px;opacity:.3;">
+        <p class="font-mono text-[9px] uppercase tracking-widest text-center"
+           style="color:rgba(255,255,255,.28);"
+           data-es="©2026 Martín Pizarro — Todos los derechos reservados."
+           data-en="©2026 Martín Pizarro — All rights reserved.">
+            ©2026 Martín Pizarro — Todos los derechos reservados.
+        </p>
+    </div>
+
+</footer>
+
+<script>
+// ── Mouse parallax on fan group (gentle tilt) ──
+const fanGroup = document.getElementById('fanGroup');
+let mx = 0, my = 0, cx = 0, cy = 0;
+
+document.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth)  * 2 - 1;
+    my = (e.clientY / window.innerHeight) * 2 - 1;
+});
+
+(function tick() {
+    cx += (mx - cx) * .05;
+    cy += (my - cy) * .05;
+    // rotateX(10deg) is the base tilt — we modulate it ±5deg
+    fanGroup.style.transform = `rotateX(${10 + cy * -5}deg) rotateY(${cx * 6}deg)`;
+    requestAnimationFrame(tick);
+})();
+
+// ── Scroll reveal ──
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Partículas píxel emanando de "Portfolio" ──
+(function () {
+    const titleEl = document.querySelector('.hero-big-title.title-halftone');
+    const heroEl  = document.querySelector('.hero-ref');
+    if (!titleEl || !heroEl) return;
+
+    const canvas = document.createElement('canvas');
+    Object.assign(canvas.style, {
+        position: 'absolute', top: '0', left: '0',
+        width: '100%', height: '100%',
+        pointerEvents: 'none', zIndex: '3'
+    });
+    heroEl.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resize() {
+        W = canvas.width  = heroEl.offsetWidth;
+        H = canvas.height = heroEl.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function bounds() {
+        const r  = titleEl.getBoundingClientRect();
+        const hr = heroEl.getBoundingClientRect();
+        return { x: r.left - hr.left, y: r.top - hr.top, w: r.width, h: r.height };
+    }
+
+    function spawn() {
+        const b    = bounds();
+        const size = Math.random() < 0.6 ? 2 : (Math.random() < 0.8 ? 3 : 4);
+        return {
+            x: b.x + Math.random() * b.w,
+            y: b.y + Math.random() * b.h,
+            size,
+            vx:    (Math.random() - 0.5) * 0.8,
+            vy:    -(Math.random() * 1.0 + 0.2),
+            alpha: Math.random() * 0.6 + 0.2,
+            decay: 0.004 + Math.random() * 0.006,
+            color: '#ffffff'
+        };
+    }
+
+    function tick() {
+        ctx.clearRect(0, 0, W, H);
+        if (Math.random() < 0.55) particles.push(spawn());
+        if (Math.random() < 0.2)  particles.push(spawn());
+        particles = particles.filter(p => p.alpha > 0.01);
+        for (const p of particles) {
+            p.x    += p.vx;
+            p.y    += p.vy;
+            p.vy   *= 0.986;
+            p.vx   *= 0.993;
+            p.alpha -= p.decay;
+            ctx.globalAlpha = Math.max(0, p.alpha);
+            ctx.fillStyle   = p.color;
+            ctx.fillRect(Math.round(p.x), Math.round(p.y), p.size, p.size);
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(tick);
+    }
+
+    setTimeout(tick, 800);
+})();
+
+
+// ── Theme Toggle ──
+(function initTheme() {
+    const checkbox = document.getElementById('theme-checkbox');
+    const html     = document.documentElement;
+    const saved    = localStorage.getItem('mp-theme');
+    const isLight  = saved === 'light';
+    if (isLight) {
+        html.classList.add('light-mode');
+        checkbox.checked = true;
+    }
+    if (!saved) localStorage.setItem('mp-theme', 'dark');
+    checkbox.addEventListener('change', () => {
+        const light = checkbox.checked;
+        html.classList.toggle('light-mode', light);
+        localStorage.setItem('mp-theme', light ? 'light' : 'dark');
+    });
+})();
+
+// ── Language Toggle ──
+(function initLang() {
+    const btn = document.getElementById('lang-btn');
+    let lang  = localStorage.getItem('mp-lang') || 'es';
+
+    function apply(l) {
+        document.querySelectorAll('[data-es]').forEach(el => {
+            el.textContent = l === 'es' ? el.dataset.es : el.dataset.en;
+        });
+        // Clase para que activateTab sepa el idioma actual
+        document.documentElement.classList.toggle('lang-en', l === 'en');
+        // Re-renderizar descripción de la tab activa
+        const activeTab = document.querySelector('.caso-tab.active');
+        if (activeTab && window._activateTab) window._activateTab(activeTab.dataset.cat);
+        btn.classList.toggle('pill-right', l === 'en');
+        localStorage.setItem('mp-lang', l);
+        lang = l;
+    }
+
+    apply(lang);
+    btn.addEventListener('click', () => apply(lang === 'es' ? 'en' : 'es'));
+})();
+
+// Movimiento manejado por CSS (titleElegant)
+
+// ── Pixel Trail ──
+(function initTrail() {
+    const trail = document.getElementById('px-trail');
+    const ctx   = trail.getContext('2d');
+    let mx = 0, my = 0, pmx = 0, pmy = 0;
+    let particles = [];
+
+    function resize() { trail.width = window.innerWidth; trail.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+
+    document.addEventListener('mousemove', e => {
+        pmx = mx; pmy = my;
+        mx = e.clientX; my = e.clientY;
+        const dist = Math.hypot(mx - pmx, my - pmy);
+        if (dist > 3) {
+            particles.push({
+                x: mx, y: my,
+                size:  Math.random() < .5 ? 2 : 3,
+                alpha: Math.random() * .35 + .2,
+                decay: .018 + Math.random() * .02,
+            });
+        }
+    });
+
+    (function loop() {
+        ctx.clearRect(0, 0, trail.width, trail.height);
+        particles = particles.filter(p => p.alpha > 0.01);
+        for (const p of particles) {
+            p.alpha -= p.decay;
+            ctx.globalAlpha = Math.max(0, p.alpha);
+            ctx.fillStyle = '#4a90ff';
+            ctx.fillRect(Math.round(p.x), Math.round(p.y), p.size, p.size);
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(loop);
+    })();
+})();
+
+// ── FAN CARD → CASOS TAB ──
+(function() {
+    const labels = { motion: 'Motion & 3D', branding: 'Branding', arte: 'Arte Digital', proyectos: 'Proyectos Personales' };
+
+    const descs = {
+        motion: {
+            es: 'Animación, diseño en movimiento y modelado 3D que dan vida a los conceptos. Piezas pensadas para impactar en segundos.',
+            en: 'Animation, motion design and 3D modeling that bring concepts to life. Pieces built to make an impact in seconds.'
+        },
+        branding: {
+            es: 'Identidades visuales con carácter. Sistemas de marca que comunican quiénes son las organizaciones antes de decir una sola palabra.',
+            en: 'Visual identities with character. Brand systems that communicate who organizations are before saying a single word.'
+        },
+        arte: {
+            es: 'Exploración libre entre la ilustración, el collage y la experimentación visual. Obras donde el proceso es tan importante como el resultado.',
+            en: 'Free exploration between illustration, collage and visual experimentation. Works where the process is as important as the result.'
+        },
+        proyectos: {
+            es: 'Proyectos nacidos desde la curiosidad y la necesidad de decir algo. Sin clientes, sin restricciones — diseño con propósito propio.',
+            en: 'Projects born from curiosity and the need to say something. No clients, no restrictions — design with its own purpose.'
+        }
+    };
+
+    function activateTab(cat) {
+        document.querySelectorAll('.caso-tab').forEach(t => {
+            t.classList.toggle('active', t.dataset.cat === cat);
+        });
+        document.querySelectorAll('.caso-panel').forEach(p => {
+            p.classList.toggle('active', p.dataset.panel === cat);
+        });
+        const lbl = document.getElementById('panelLabel');
+        if (lbl) lbl.textContent = labels[cat] || '';
+
+        const desc = document.getElementById('casosDesc');
+        if (desc && descs[cat]) {
+            const lang = document.documentElement.classList.contains('lang-en') ? 'en' : 'es';
+            desc.style.opacity = '0';
+            setTimeout(() => {
+                desc.textContent = descs[cat][lang];
+                desc.style.opacity = '1';
+            }, 180);
+        }
+    }
+
+    // Click en fan card → scroll a #casos + activar tab
+    document.querySelectorAll('.fan-card[data-cat]').forEach(card => {
+        card.addEventListener('click', function() {
+            const cat = this.dataset.cat;
+            activateTab(cat);
+            document.getElementById('casos').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Click en tab del bento → activar tab
+    document.querySelectorAll('.caso-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            activateTab(this.dataset.cat);
+        });
+    });
+
+    // Activar Motion & 3D por defecto
+    activateTab('arte');
+
+    // Exponer globalmente para que el toggle de idioma pueda re-renderizar
+    window._activateTab = activateTab;
+})();
+
+// ── Typewriter Hero ───────────────────────────────────────────────────────────
+(function () {
+    const titles  = document.querySelectorAll('.hero-big-title');
+    // NFC: convierte "i + acento combinado" → "í" (un solo carácter)
+    const WORDS   = ['Portfolio', 'Martin Pizarro'];
+    const SIZES   = ['clamp(2.8rem, 9.8vw, 11.5rem)', 'clamp(1.8rem, 6.3vw, 7.4rem)'];
+    const HOLD    = 5000;  // ms que se mantiene cada palabra
+    const ERASE   = 50;    // ms entre cada borrado (más rápido)
+    const TYPE    = 80;    // ms entre cada letra escrita
+
+    function setAll(text) { titles.forEach(el => el.textContent = text); }
+    function setSize(val)  { titles.forEach(el => el.style.fontSize = val); }
+    function sleep(ms)     { return new Promise(r => setTimeout(r, ms)); }
+
+    // Aplicar tamaño inicial
+    setSize(SIZES[0]);
+
+    async function blink() {
+        const frames = [':)', ';)'];
+        for (let i = 0; i < 6; i++) {
+            setAll(frames[i % 2]);
+            await sleep(180);
+        }
+    }
+
+    async function run() {
+        let index = 0;
+        await sleep(HOLD); // espera inicial antes del primer cambio
+
+        while (true) {
+            const next = (index + 1) % WORDS.length;
+
+            // 1. Borrar palabra actual (rápido)
+            let cur = WORDS[index];
+            while (cur.length > 0) {
+                cur = cur.slice(0, -1);
+                setAll(cur + '|');
+                await sleep(ERASE);
+            }
+
+            // 2. Emoji pestañeando
+            await sleep(100);
+            await blink();
+            await sleep(150);
+
+            // 3. Ajustar tamaño y escribir siguiente palabra
+            setSize(SIZES[next]);
+            const chars = Array.from(WORDS[next].normalize('NFC'));
+            let typed = '';
+            for (const ch of chars) {
+                typed += ch;
+                setAll(typed + '|');
+                await sleep(TYPE);
+            }
+
+            // Quitar cursor y esperar
+            await sleep(300);
+            setAll(WORDS[next]);
+            await sleep(HOLD);
+
+            index = next;
+        }
+    }
+
+    run();
+})();
+
+</script>
+
+</body>
+</html>
