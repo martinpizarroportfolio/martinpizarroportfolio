@@ -967,10 +967,68 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
     margin-bottom: 2px;
 }
 /* Colores de íconos según tema — sin filtro, todos son logos a color */
+
+/* ── Loader ── */
+#mp-loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity .6s ease, visibility .6s ease;
+}
+#mp-loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+#mp-loader img {
+    width: 72px;
+    height: auto;
+    animation: coinSpin 1.2s ease-in-out infinite;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 0 18px rgba(74,144,255,0.25));
+}
+#mp-loader img.shine {
+    animation: coinSpin 1.2s ease-in-out infinite, logoShine .6s ease forwards;
+}
+@keyframes coinSpin {
+    0%   { transform: rotateY(0deg) scaleX(1); }
+    25%  { transform: rotateY(90deg) scaleX(0.08); }
+    50%  { transform: rotateY(180deg) scaleX(1); }
+    75%  { transform: rotateY(270deg) scaleX(0.08); }
+    100% { transform: rotateY(360deg) scaleX(1); }
+}
+@keyframes logoShine {
+    0%   { filter: drop-shadow(0 0 18px rgba(74,144,255,0.25)); }
+    40%  { filter: drop-shadow(0 0 40px rgba(255,255,255,0.95)) drop-shadow(0 0 80px rgba(74,144,255,0.7)); }
+    100% { filter: drop-shadow(0 0 24px rgba(74,144,255,0.4)); }
+}
 </style>
 <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 </head>
 <body class="bg-surface font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+
+<!-- ── Loader ── -->
+<div id="mp-loader">
+    <img src="MP_LOGO_WHITE.png" alt="MP" id="mp-loader-logo">
+</div>
+<script>
+(function () {
+    const loader = document.getElementById('mp-loader');
+    const logo   = document.getElementById('mp-loader-logo');
+    function dismiss() {
+        logo.classList.add('shine');
+        setTimeout(() => loader.classList.add('hide'), 600);
+    }
+    if (document.readyState === 'complete') {
+        setTimeout(dismiss, 400);
+    } else {
+        window.addEventListener('load', () => setTimeout(dismiss, 400));
+    }
+})();
+</script>
 
 <!-- ── Pixel Trail ── -->
 <canvas id="px-trail"></canvas>
