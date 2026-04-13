@@ -1681,9 +1681,9 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     // NFC: convierte "i + acento combinado" → "í" (un solo carácter)
     const WORDS   = ['Portfolio', 'Martin Pizarro'];
     const SIZES   = ['clamp(2.8rem, 9.8vw, 11.5rem)', 'clamp(1.8rem, 6.3vw, 7.4rem)'];
-    const HOLD    = 5000;  // ms que se mantiene cada palabra
-    const ERASE   = 50;    // ms entre cada borrado (más rápido)
-    const TYPE    = 80;    // ms entre cada letra escrita
+    const HOLD    = 2000;  // ms que se mantiene cada palabra
+    const ERASE   = 30;    // ms entre cada borrado (más rápido)
+    const TYPE    = 55;    // ms entre cada letra escrita
 
     function setAll(text) { titles.forEach(el => el.textContent = text); }
     function setSize(val)  { titles.forEach(el => el.style.fontSize = val); }
