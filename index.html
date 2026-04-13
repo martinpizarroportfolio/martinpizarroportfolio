@@ -343,7 +343,7 @@ nav       { animation: navDown .65s cubic-bezier(.23,1,.32,1) both; }
     .fan-card:nth-child(2) { width: 195px; height: 310px; }
 }
 @media (max-width: 1024px) {
-    .hero-corners { display: none; }
+    .hero-corners { display: none !important; }
 }
 @media (max-width: 640px) {
     .fan-scene  { padding: 20px 0 40px; overflow: visible; }
@@ -454,6 +454,7 @@ nav       { animation: navDown .65s cubic-bezier(.23,1,.32,1) both; }
     animation: fadeUp .6s .1s cubic-bezier(.23,1,.32,1) both;
 }
 .hero-corners .corner-right { text-align: right; line-height: 1.7; }
+@media (max-width: 1024px) { .hero-corners { display: none; } }
 
 .hero-title-wrap {
     flex: 1;
