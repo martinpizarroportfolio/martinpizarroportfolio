@@ -904,6 +904,9 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
     will-change: transform;
     pointer-events: none;
 }
+@media (max-width: 640px) {
+    .marquee-track { animation-duration: 20s; }
+}
 @keyframes marqueeScroll {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
