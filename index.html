@@ -438,6 +438,55 @@ nav       { animation: navDown .65s cubic-bezier(.23,1,.32,1) both; }
     transform: scale(1.04); filter: grayscale(0%);
 }
 
+/* ══ Hero Blobs ══ */
+.hero-blobs {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+.hero-blob {
+    position: absolute;
+    background: #4a90ff;
+    filter: blur(90px);
+    opacity: 0.13;
+    animation: blobDrift 14s ease-in-out infinite;
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+}
+.hero-blob:nth-child(1) {
+    width: 520px; height: 520px;
+    top: -140px; left: -100px;
+    animation-duration: 16s;
+}
+.hero-blob:nth-child(2) {
+    width: 420px; height: 380px;
+    bottom: -60px; right: 5%;
+    animation-duration: 20s;
+    animation-delay: -7s;
+}
+.hero-blob:nth-child(3) {
+    width: 280px; height: 280px;
+    top: 35%; left: 45%;
+    animation-duration: 12s;
+    animation-delay: -3s;
+    opacity: 0.08;
+}
+@keyframes blobDrift {
+    0%, 100% { transform: translate(0, 0) scale(1);    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+    33%       { transform: translate(40px, -30px) scale(1.08); border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; }
+    66%       { transform: translate(-25px, 35px) scale(0.95); border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%; }
+}
+/* Grain sobre blobs */
+.hero-grain {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+}
 /* ══ Hero — Pixel Edition ══ */
 .hero-ref {
     background: #000000;
@@ -763,17 +812,8 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
 
 /* ── SECUENCIA SOBRE MÍ (3 items, 3s c/u, 9s ciclo) ── */
 @keyframes sobrePhotoZoom {
-    0%   { transform: scale(1); }
-    30%  { transform: scale(1.07); }
-    33%  { transform: scale(1.07); }
-    34%  { transform: scale(1); }
-    100% { transform: scale(1); }
-}
-@keyframes sobreMiSeq {
-    0%   { opacity: 1; }
-    30%  { opacity: 1; }
-    33%  { opacity: 0; }
-    100% { opacity: 0; }
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.06); }
 }
 .sobre-photo {
     position: absolute;
@@ -782,17 +822,8 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
     height: 100%;
     object-fit: cover;
     object-position: top center;
-    opacity: 0;
-    animation: sobreMiSeq 9s infinite, sobrePhotoZoom 9s ease-in-out infinite;
-}
-.sobre-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    animation: sobreMiSeq 9s infinite;
+    opacity: 1;
+    animation: sobrePhotoZoom 8s ease-in-out infinite;
 }
 
 /* ── ESTRELLA PIXELADA ANIMADA ── */
@@ -1083,6 +1114,14 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
 <main class="relative z-10 overflow-hidden" id="trabajo">
 <section class="hero-ref" id="hero">
 
+    <!-- Blobs de fondo -->
+    <div class="hero-blobs" aria-hidden="true">
+        <div class="hero-blob"></div>
+        <div class="hero-blob"></div>
+        <div class="hero-blob"></div>
+    </div>
+    <div class="hero-grain" aria-hidden="true"></div>
+
     <!-- Título principal -->
     <div class="hero-title-wrap">
         <div class="hero-title-float">
@@ -1334,13 +1373,7 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
             <!-- Foto -->
             <div class="flex-shrink-0 w-full lg:w-72">
                 <div class="relative w-full lg:w-72 aspect-[3/4] bg-surface-container border border-outline-variant/30 overflow-hidden">
-                    <img  class="sobre-photo" style="animation-delay:0s"  src="assets/sobre-mi/Yo.jpeg" alt="Martín Pizarro"/>
-                    <video class="sobre-video" style="animation-delay:-3s" autoplay muted loop playsinline>
-                        <source src="assets/sobre-mi/Volcan.mp4" type="video/mp4">
-                    </video>
-                    <video class="sobre-video" style="animation-delay:-6s" autoplay muted loop playsinline>
-                        <source src="assets/sobre-mi/Naturaleza.mp4" type="video/mp4">
-                    </video>
+                    <img class="sobre-photo" src="assets/sobre-mi/Yo.jpeg" alt="Martín Pizarro"/>
                     <div class="absolute bottom-0 left-0 right-0 h-1 bg-[#4a90ff] z-10"></div>
                 </div>
                 <div class="flex flex-wrap gap-2 mt-5">
@@ -1363,9 +1396,9 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
                     Soy Martín Pizarro, diseñador gráfico chileno de 28 años, originario de Hornopirén, un pequeño pueblo al sur de Chile rodeado de naturaleza. Actualmente resido en Valparaíso. Crecer en el sur ha influido profundamente en mi forma de ver el mundo y de crear, entregándome la calma y la inspiración necesarias para explorar distintas disciplinas artísticas.
                 </p>
                 <p class="text-on-surface-variant text-sm leading-relaxed max-w-lg mb-12" style="text-wrap:pretty"
-                   data-es="Mi trabajo se desarrolla principalmente en el ámbito del arte digital, donde he participado en proyectos de animación, motion graphics, branding y creación de piezas visuales para artistas. Además, he incursionado en áreas como la música para documentales y la serigrafía. Disfruto combinar lo técnico con lo artístico, buscando generar propuestas visuales que conecten con las personas y transmitan una identidad clara."
-                   data-en="My work revolves around digital art — animation, motion graphics, branding and visual pieces for artists. I've also ventured into music for documentaries and screen printing. I enjoy combining the technical with the artistic, crafting proposals that connect with people and convey a clear identity.">
-                    Mi trabajo se desarrolla principalmente en el ámbito del arte digital, donde he participado en proyectos de animación, motion graphics, branding y creación de piezas visuales para artistas. Además, he incursionado en áreas como la música para documentales y la serigrafía. Disfruto combinar lo técnico con lo artístico, buscando generar propuestas visuales que conecten con las personas y transmitan una identidad clara.
+                   data-es="Mi trabajo se desarrolla principalmente en el ámbito del arte digital, donde he participado en proyectos de animación, motion graphics, branding y creación de piezas visuales para artistas. Además, he incursionado en áreas como la música para documentales, videos para rrss y la creación de un taller de serigrafía. Disfruto combinar lo técnico con lo artístico, buscando generar propuestas visuales que conecten con las personas y transmitan una identidad clara."
+                   data-en="My work revolves around digital art — animation, motion graphics, branding and visual pieces for artists. I've also ventured into music for documentaries, social media videos and the creation of a screen printing workshop. I enjoy combining the technical with the artistic, crafting proposals that connect with people and convey a clear identity.">
+                    Mi trabajo se desarrolla principalmente en el ámbito del arte digital, donde he participado en proyectos de animación, motion graphics, branding y creación de piezas visuales para artistas. Además, he incursionado en áreas como la música para documentales, videos para rrss y la creación de un taller de serigrafía. Disfruto combinar lo técnico con lo artístico, buscando generar propuestas visuales que conecten con las personas y transmitan una identidad clara.
                 </p>
                 <div class="flex gap-12 border-t border-outline-variant/20 pt-8">
                     <div>
