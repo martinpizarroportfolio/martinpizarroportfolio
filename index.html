@@ -16,7 +16,16 @@
 <meta name="twitter:title" content="Martín Pizarro | Diseñador Gráfico"/>
 <meta name="twitter:description" content="Portfolio de Martín Pizarro — Motion, Branding, Arte Digital y Proyectos."/>
 <meta name="twitter:image" content="https://martinpizarroportfolio.github.io/martinpizarroportfolio/assets/og-image.webp"/>
-<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;900&family=Space+Grotesk:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet"/>
+<!-- Preconnect Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<!-- Google Fonts — non-blocking -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;900&family=Space+Grotesk:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,900&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;900&family=Space+Grotesk:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet"/></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/></noscript>
+<!-- Tailwind CSS estático (generado) -->
+<link rel="stylesheet" href="tw-output.css"/>
 <style>
 html { scroll-behavior: smooth; }
 
@@ -43,26 +52,6 @@ html { scroll-behavior: smooth; }
 }
 
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-    tailwind.config = {
-        darkMode:"class",
-        theme:{extend:{
-            colors:{
-                "primary":"#0c00df","on-primary":"#ffffff",
-                "secondary-container":"#c5f000","on-secondary-container":"#0e1400",
-                "secondary":"#c5f000","background":"#080808","on-background":"#f0f0f0",
-                "surface":"#080808","on-surface":"#f0f0f0","on-surface-variant":"#999999",
-                "surface-container":"#111111","surface-container-low":"#0d0d0d",
-                "surface-container-high":"#161616","surface-container-highest":"#1c1c1c",
-                "outline":"#444444","outline-variant":"#2a2a2a",
-            },
-            borderRadius:{"DEFAULT":"0rem","lg":"0rem","xl":"0rem","full":"9999px"},
-            fontFamily:{"headline":["Epilogue"],"body":["Space Grotesk"],"label":["Space Grotesk"]}
-        }}
-    }
-</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; }
 body { font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
@@ -1320,7 +1309,7 @@ html.light-mode .border-outline-variant { border-color: rgba(0,0,0,.1) !importan
             <!-- Foto -->
             <div class="flex-shrink-0 w-full lg:w-72">
                 <div class="relative w-full lg:w-72 aspect-[3/4] bg-surface-container border border-outline-variant/30 overflow-hidden">
-                    <img class="sobre-photo" src="assets/sobre-mi/Yo.jpeg" alt="Martín Pizarro"/>
+                    <img class="sobre-photo" src="assets/sobre-mi/Yo.webp" alt="Martín Pizarro"/>
                     <div class="absolute bottom-0 left-0 right-0 h-1 bg-[#4a90ff] z-10"></div>
                 </div>
                 <div class="flex flex-wrap gap-2 mt-5">
